@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    background-color: #202329;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #97ce4c;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.atendimento-box {
+    background-color: #3c3e44;
+    border: 3px solid #97ce4c;
+    border-radius: 10px;
+    padding: 15px;
+    display: inline-block;
+    min-width: 200px;
+}
+
+.fila-visual {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    overflow-x: auto;
+    justify-content: center;
+    background-color: #272b33;
+    border-radius: 10px;
+}
+
+.card-fila {
+    background: #3c3e44;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
+}
+
+.card-fila img { width: 100%; border-radius: 3px; }
+.card-fila p { font-size: 10px; margin: 5px 0; }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fila Rick and Morty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Central de Atendimento Rick and Morty</h1>
+    
+    <div class="controles">
+        <button id="btnAdicionar">Adicionar à Fila</button>
+        <button id="btnAtender">Atender Próximo</button>
+    </div>
+
+    <div id="atendimentoAtual">
+        <h2>Em Atendimento:</h2>
+        <div id="cardAtual" class="atendimento-box">Ninguém em atendimento</div>
+    </div>
+
+    <hr>
+    
+    <h2>Personagens Aguardando:</h2>
+    <div id="containerFila" class="fila-visual"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
