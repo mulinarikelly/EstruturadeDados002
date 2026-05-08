@@ -19,6 +19,21 @@ class Fila {
 
 const minhaFila = new Fila();
 
+const traducoes = {
+    "Human": "Humano",
+    "Alien": "Alienígena",
+    "Alive": "Vivo",
+    "Dead": "Morto",
+    "unknown": "Desconhecido",
+    "Humanoid": "Humanoide",
+    "Poopybutthole": "Poopybutthole",
+    "Mythological Creature": "Criatura Mitológica",
+    "Animal": "Animal",
+    "Robot": "Robô",
+    "Cronenberg": "Cronenberg",
+    "Disease": "Doença"
+};
+
 async function buscarPersonagem() {
     const id = Math.floor(Math.random() * 826) + 1;
     try {
@@ -34,13 +49,22 @@ async function buscarPersonagem() {
 function atender() {
     const p = minhaFila.dequeue();
     const display = document.getElementById('cardAtual');
+    const buzina = document.getElementById('somBuzina');
 
     if (p) {
+        if (buzina) {
+            buzina.currentTime = 0;
+            buzina.play().catch(() => {});
+        }
+
+        const especieTraduzida = traducoes[p.species] || p.species;
+        const statusTraduzido = traducoes[p.status] || p.status;
+
         display.innerHTML = `
-            <img src="${p.image}" width="150"><br>
+            <img src="${p.image}" width="150" style="border-radius: 8px;"><br>
             <h3>${p.name}</h3>
-            <p>Espécie: ${p.species}</p>
-            <p>Status: ${p.status}</p>
+            <p><strong>Espécie:</strong> ${especieTraduzida}</p>
+            <p><strong>Status:</strong> ${statusTraduzido}</p>
         `;
     } else {
         display.innerHTML = "Fila Vazia!";
@@ -55,7 +79,7 @@ function renderizar() {
     minhaFila.itens.forEach(p => {
         const div = document.createElement('div');
         div.className = 'card-fila';
-        div.innerHTML = `<img src="${p.image}"><p>${p.name}</p>`;
+        div.innerHTML = `<img src="${p.image}" width="50"><p>${p.name}</p>`;
         container.appendChild(div);
     });
 }
